@@ -73,7 +73,9 @@ module.exports = (() => {
 						}
 						for (let sound of [...queue.entries()].sort((a, b) => a[0] - b[0])) {
 							 if (message.content.includes("💀💀💀")) {
-let audio2 = new Audio("https://github.com/NeutronJava/SoundsForBetterDiscordPlugin/raw/main/memesounds/Sounds/skullemojix3"+skullemojix3.file);
+let audio2 = new Audio("https://github.com/NeutronJava/SoundsForBetterDiscordPlugin/raw/main/memesounds/Sounds/skullemojix3.mp3");
+					audio2.volume = this.settings.setting.volume;
+							audio2.play();			 
 }
 							let audio = new Audio("https://github.com/NeutronJava/SoundsForBetterDiscordPlugin/raw/main/memesounds/Sounds/"+sound[1].file);
 							audio.volume = this.settings.setting.volume;
