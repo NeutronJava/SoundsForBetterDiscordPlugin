@@ -41,8 +41,25 @@ module.exports = (() => {
 				{re: /😡/gmi, file: "failmeoften.mp3", duration: 100},
 				{re: /🤬/gmi, file: "spareribs.mp3", duration: 100},
 				{re: /💀/gmi, file: "skullemoji.mp3", duration: 550},
-				{re: /😳/gmi, file: "squeak.mp3", duration: 100}
-				{re: /🤨/gmi, file: "waterhose.mp3", duration: 100}
+				{re: /😳/gmi, file: "flushing.mp3", duration: 100},
+				{re: /🤨/gmi, file: "waterhose.mp3", duration: 100},
+				{re: /😏/gmi, file: "mlady.mp3", duration: 100},
+				{re: /😔/gmi, file: "goblin.mp3", duration: 100},
+				{re: /😎/gmi, file: "letsgo.mp3", duration: 100},
+				{re: /🤓/gmi, file: "nerd.mp3", duration: 100},
+				{re: /🤠/gmi, file: "cowboyhootin.mp3", duration: 100},
+				{re: /🤡/gmi, file: "clown.mp3", duration: 100},
+				{re: /bozo/gmi, file: "nerd.mp3", duration: 100},
+				{re: /🥺/gmi, file: "pleadingsir.mp3", duration: 100},
+				{re: /😭/gmi, file: "goblin.mp3", duration: 100},
+				{re: /🐟/gmi, file: "fish.mp3", duration: 100},
+				{re: /🎤 🦟/gmi, file: "mosquitomusic.mp3", duration: 100},
+				{re: /😴/gmi, file: "mimi.mp3", duration: 100},
+				{re: /🥱/gmi, file: "snoring.mp3", duration: 100},
+				{re: /🥶/gmi, file: "ice.mp3", duration: 100},
+				{re: /bogos binted/gmi, file: "bogosbinted.mp3", duration: 100},
+				{re: /👽/gmi, file: "fade.mp3", duration: 100}
+				
 			];
 
 			/* Double message event fix */
