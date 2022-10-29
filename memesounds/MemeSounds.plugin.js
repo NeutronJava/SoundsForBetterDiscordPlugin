@@ -13,7 +13,7 @@
 module.exports = (() => {
 	
 	/* Configuration */
-	const config = {info: {name: "Meme Sounds UPGRADED!", authors: [{name: "Neutron05#3486", discord_id: "543661347615932426", github_username: "NeutronJava"}], version: "0.6.1", description: "MORE SOUNDS. This was heavily inspired by the idea of Metalloriff's bruh plugin so go check him out!", github: "https://github.com/NeutronJava/SoundsForBetterDiscordPlugin/blob/main/memesounds/MemeSounds.plugin.js", github_raw: "https://raw.githubusercontent.com/Lonk12/BetterDiscordPlugins/main/MemeSounds/MemeSounds.plugin.js"}, defaultConfig: [{id: "setting", name: "Sound Settings", type: "category", collapsible: true, shown: true, settings: [{id: "LimitChan", name: "Limit to the current channel only.", note: "When enabled, sound effects will only play within the currently selected channel.", type: "switch", value: true}, {id: "delay", name: "Sound effect delay.", note: "The delay in miliseconds between each sound effect.", type: "slider", value: 200, min: 10, max: 1000, renderValue: v => Math.round(v) + "ms"}, {id: "volume", name: "Sound effect volume.", note: "How loud the sound effects will be.", type: "slider", value: 1, min: 0.01, max: 1, renderValue: v => Math.round(v*100) + "%"}]}], changelog: [{title: "New Stuff", items: ["Added the vine boom sound effect when :moyai: is sent into chat.", "Thanks to Orangenal name#9280 for adding vine boom!"]}]};
+	const config = {info: {name: "Meme Sounds UPGRADED!", authors: [{name: "Neutron05#3486", discord_id: "543661347615932426", github_username: "NeutronJava"}], version: "0.6.1", description: "MORE SOUNDS. This was heavily inspired by the idea of Metalloriff's bruh plugin so go check him out!", github: "https://github.com/NeutronJava/SoundsForBetterDiscordPlugin/blob/main/memesounds/MemeSounds.plugin.js", github_raw: "https://raw.githubusercontent.com/NeutronJava/SoundsForBetterDiscordPlugin/main/memesounds/MemeSounds.plugin.js"}, defaultConfig: [{id: "setting", name: "Sound Settings", type: "category", collapsible: true, shown: true, settings: [{id: "LimitChan", name: "Limit to the current channel only.", note: "When enabled, sound effects will only play within the currently selected channel.", type: "switch", value: true}, {id: "delay", name: "Sound effect delay.", note: "The delay in miliseconds between each sound effect.", type: "slider", value: 200, min: 10, max: 1000, renderValue: v => Math.round(v) + "ms"}, {id: "volume", name: "Sound effect volume.", note: "How loud the sound effects will be.", type: "slider", value: 1, min: 0.01, max: 1, renderValue: v => Math.round(v*100) + "%"}, {id: "SoundPitch", name: "Sound effects have random pitch", note: "When enabled, sound effects will play which random pitches.", type: "switch", value: false}]}], changelog: [{title: "New sounds", items: ["testertesting", "test"]}]};
 
 	/* Library Stuff */
 	return !global.ZeresPluginLibrary ? class {
@@ -93,8 +93,26 @@ module.exports = (() => {
 						for (let sound of [...queue.entries()].sort((a, b) => a[0] - b[0])) {
 							let audio = new Audio("https://github.com/NeutronJava/SoundsForBetterDiscordPlugin/raw/main/memesounds/Sounds/"+sound[1].file);
 							audio.volume = this.settings.setting.volume;
+							if (this.settings.setting.SoundPitch) {
+								var pitchShift = new Tone.PitchShift({
+pitch: -5
+}).toMaster();
+
+audio.connect(pitchShift);
+
+Tone.Buffer.on('load', () => {
+    alert('Ready for play');
+});
+
+window.play = function() {
+    Tone.Transport.start();
+}
+await new Promise(r => setTimeout(r, sound[1].duration+this.settings.setting.delay));
+								} else {
+								
 							audio.play();
 							await new Promise(r => setTimeout(r, sound[1].duration+this.settings.setting.delay));
+									}
 						}
 					}
 					
