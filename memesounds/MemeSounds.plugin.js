@@ -32,7 +32,7 @@ module.exports = (() => {
 			/* Constants */
 			const {DiscordModules: {Dispatcher, SelectedChannelStore}} = Api;
 			const sounds = [
-				{re: /no?ice/gmi, file: "noice.mp3", duration: 600},
+				{re: /noice/gmi, file: "noice.mp3", duration: 600},
 				{re: /bazinga/gmi, file: "bazinga.mp3", duration: 550},
 				{re: /oof/gmi, file: "oof.mp3", duration: 250},
 				{re: /bruh/gmi, file: "bruh.mp3", duration: 470},
