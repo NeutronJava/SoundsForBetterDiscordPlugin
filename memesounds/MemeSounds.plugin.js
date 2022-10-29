@@ -1,13 +1,13 @@
 /**
- * @name MemeSounds
+ * @name MemeSoundsTest
  * @version 0.6.1
  * @description Plays Memetastic sounds depending on what is being sent in chat. This was heavily inspired by the idea of Metalloriff's bruh plugin so go check him out!
  * @invite SsTkJAP3SE
  * @author Lonk#6942
  * @authorId 557388558017495046
- * @authorLink https://github.com/Lonk12/
- * @source https://github.com/Lonk12/BetterDiscordPlugins/blob/main/MemeSounds/MemeSounds.plugin.js
- * @updateUrl https://raw.githubusercontent.com/Lonk12/BetterDiscordPlugins/main/MemeSounds/MemeSounds.plugin.js
+ * @authorLink https://github.com/NeutronJava/
+ * @source https://github.com/NeutronJava/SoundsForBetterDiscordPlugin/blob/main/memesounds/MemeSounds.plugin.js
+ * @updateUrl https://github.com/NeutronJava/SoundsForBetterDiscordPlugin/blob/main/memesounds/MemeSounds.plugin.js
  */
 
 module.exports = (() => {
@@ -37,6 +37,7 @@ module.exports = (() => {
 				{re: /oof/gmi, file: "oof.mp3", duration: 250},
 				{re: /bruh/gmi, file: "bruh.mp3", duration: 470},
 				{re: /🗿/gmi, file: "moyai.mp3", duration: 100}
+				{re: /gay/gmi, file: "gay.mp3", duration: 100}
 			];
 
 			/* Double message event fix */
@@ -68,7 +69,7 @@ module.exports = (() => {
 								queue.set(match.index, sound);
 						}
 						for (let sound of [...queue.entries()].sort((a, b) => a[0] - b[0])) {
-							let audio = new Audio("https://github.com/Lonk12/BetterDiscordPlugins/raw/main/MemeSounds/Sounds/"+sound[1].file);
+							let audio = new Audio("https://github.com/NeutronJava/SoundsForBetterDiscordPlugin/raw/main/memesounds/Sounds/"+sound[1].file);
 							audio.volume = this.settings.setting.volume;
 							audio.play();
 							await new Promise(r => setTimeout(r, sound[1].duration+this.settings.setting.delay));
