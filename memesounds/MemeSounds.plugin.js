@@ -1,6 +1,6 @@
 /**
  * @name MemeSounds
- * @version 0.6.1
+ * @version 0.6.2
  * @description Plays Memetastic sounds depending on what is being sent in chat. This was heavily inspired by the idea of Metalloriff's bruh plugin so go check him out!
  * @invite SsTkJAP3SE
  * @author Neutron05#3486
