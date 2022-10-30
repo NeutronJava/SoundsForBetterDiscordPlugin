@@ -27,19 +27,6 @@ module.exports = (() => {
 		stop() { }
 	} : (([Plugin, Api]) => {
 		
-const {Patcher} = Library;
-    return class MemeSounds extends Plugin {
-
-        onStart() {
-            Patcher.before(Logger, "log", (t, a) => {
-                a[0] = "Patched Message: " + a[0];
-            });
-        }
-
-        onStop() {
-            Patcher.unpatchAll();
-        }
-    };
 		
 		const plugin = (Plugin, Api) => { try {
 			
