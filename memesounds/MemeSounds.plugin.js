@@ -108,7 +108,7 @@ const {Patcher} = Library;
 							let audio = new Audio("https://github.com/NeutronJava/SoundsForBetterDiscordPlugin/raw/main/memesounds/Sounds/"+sound[1].file);
 							audio.volume = this.settings.setting.volume;
 							if (this.settings.setting.SoundPitch) {
-								var pitchShift = new Tone.PitchShift({
+								
 await new Promise(r => setTimeout(r, sound[1].duration+this.settings.setting.delay));
 								} else {
 								
