@@ -94,20 +94,7 @@ module.exports = (() => {
 							let audio = new Audio("https://github.com/NeutronJava/SoundsForBetterDiscordPlugin/raw/main/memesounds/Sounds/"+sound[1].file);
 							audio.volume = this.settings.setting.volume;
 							if (this.settings.setting.SoundPitch) {
-								await Tone.start();
-  const player = new Tone.Player({
-    audio,
-    loop: false,
-    autostart: true,
-  });
-  await Tone.loaded();
-  const pitchShift = new Tone
-    .PitchShift({pitch: -8})
-    .toDestination()
-  ;
-  player.connect(pitchShift);
-  player.start();
-});
+
 								} else {
 								
 							audio.play();
