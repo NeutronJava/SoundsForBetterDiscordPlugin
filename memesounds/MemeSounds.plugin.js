@@ -97,7 +97,7 @@ module.exports = (() => {
 								await Tone.start();
   const player = new Tone.Player({
     audio,
-    loop: false,
+    loop: true,
     autostart: false,
   });
   await Tone.loaded();
@@ -107,6 +107,7 @@ module.exports = (() => {
   ;
   player.connect(pitchShift);
   player.start();
+								  });
 								} else {
 								
 							audio.play();
