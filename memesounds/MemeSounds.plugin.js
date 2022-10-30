@@ -113,8 +113,8 @@ module.exports = (() => {
 								} else {
 								
 							audio.play();
-							await new Promise(r => setTimeout(r, sound[1].duration+this.settings.setting.delay));
 									}
+							await new Promise(r => setTimeout(r, sound[1].duration+this.settings.setting.delay));
 						}
 					}
 					
