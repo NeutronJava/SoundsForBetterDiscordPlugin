@@ -107,7 +107,7 @@ module.exports = (() => {
   ;
   player.connect(pitchShift);
   player.start();
-								  });
+});
 								} else {
 								
 							audio.play();
