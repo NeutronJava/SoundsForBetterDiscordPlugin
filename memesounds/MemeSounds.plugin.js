@@ -26,7 +26,21 @@ module.exports = (() => {
 		start() { }
 		stop() { }
 	} : (([Plugin, Api]) => {
+		
+const {Patcher} = Library;
+    return class ExamplePlugin extends Plugin {
 
+        onStart() {
+            Patcher.before(Logger, "log", (t, a) => {
+                a[0] = "Patched Message: " + a[0];
+            });
+        }
+
+        onStop() {
+            Patcher.unpatchAll();
+        }
+    };
+		
 		const plugin = (Plugin, Api) => { try {
 			
 			/* Constants */
@@ -95,18 +109,6 @@ module.exports = (() => {
 							audio.volume = this.settings.setting.volume;
 							if (this.settings.setting.SoundPitch) {
 								var pitchShift = new Tone.PitchShift({
-pitch: -5
-}).toMaster();
-
-audio.connect(pitchShift);
-
-Tone.Buffer.on('load', () => {
-    alert('Ready for play');
-});
-
-window.play = function() {
-    Tone.Transport.start();
-}
 await new Promise(r => setTimeout(r, sound[1].duration+this.settings.setting.delay));
 								} else {
 								
