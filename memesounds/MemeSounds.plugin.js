@@ -28,7 +28,7 @@ module.exports = (() => {
 	} : (([Plugin, Api]) => {
 		
 const {Patcher} = Library;
-    return class ExamplePlugin extends Plugin {
+    return class MemeSounds extends Plugin {
 
         onStart() {
             Patcher.before(Logger, "log", (t, a) => {
