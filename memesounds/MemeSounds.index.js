@@ -4,7 +4,7 @@ module.exports = (Plugin, Library) => {
 
         onStart() {
             Patcher.before(Logger, "log", (t, a) => {
-                a[0] = "Patched Message: Added sounds or smth." + a[0];
+                a[0] = "Patched Message: Added sounds or smth....." + a[0];
             });
         }
 
