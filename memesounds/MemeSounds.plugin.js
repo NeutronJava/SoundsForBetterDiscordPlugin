@@ -7,25 +7,11 @@
  * @authorId 543661347615932426
  * @authorLink https://github.com/NeutronJava/
  * @source https://github.com/NeutronJava/SoundsForBetterDiscordPlugin/blob/main/memesounds/MemeSounds.plugin.js
- * @updateUrl https://github.com/NeutronJava/SoundsForBetterDiscordPlugin/blob/main/memesounds/MemeSounds.plugin.js
+ * @updateUrl https://raw.githubusercontent.com/NeutronJava/SoundsForBetterDiscordPlugin/main/memesounds/MemeSounds.plugin.js
  */
 
 module.exports = (() => {
-	module.exports = (Plugin, Library) => {
-    const {Patcher} = Library;
-    return class ExamplePlugin extends Plugin {
-
-        onStart() {
-            Patcher.before(Logger, "log", (t, a) => {
-                a[0] = "Patched Message: " + a[0];
-            });
-        }
-
-        onStop() {
-            Patcher.unpatchAll();
-        }
-    };
-};
+	
 	/* Configuration */
 	const config = {info: {name: "Meme Sounds UPGRADED!", authors: [{name: "Neutron05#3486", discord_id: "543661347615932426", github_username: "NeutronJava"}], version: "0.6.1", description: "MORE SOUNDS. This was heavily inspired by the idea of Metalloriff's bruh plugin so go check him out!", github: "https://github.com/NeutronJava/SoundsForBetterDiscordPlugin/blob/main/memesounds/MemeSounds.plugin.js", github_raw: "https://raw.githubusercontent.com/NeutronJava/SoundsForBetterDiscordPlugin/main/memesounds/MemeSounds.plugin.js"}, defaultConfig: [{id: "setting", name: "Sound Settings", type: "category", collapsible: true, shown: true, settings: [{id: "LimitChan", name: "Limit to the current channel only.", note: "When enabled, sound effects will only play within the currently selected channel.", type: "switch", value: true}, {id: "delay", name: "Sound effect delay.", note: "The delay in miliseconds between each sound effect.", type: "slider", value: 200, min: 10, max: 1000, renderValue: v => Math.round(v) + "ms"}, {id: "volume", name: "Sound effect volume.", note: "How loud the sound effects will be.", type: "slider", value: 1, min: 0.01, max: 1, renderValue: v => Math.round(v*100) + "%"}, {id: "SoundPitch", name: "Sound effects have random pitch", note: "When enabled, sound effects will play with random pitches.", type: "switch", value: false}]}], changelog: [{title: "New sounds", items: ["fish", "emojis idk lol just check the code to see it"]}]};
 
@@ -41,6 +27,8 @@ module.exports = (() => {
 		stop() { }
 	} : (([Plugin, Api]) => {
 		
+		if (!global.ZeresPluginLibrary) return window.BdApi.alert("Library Missing",`The library plugin needed for ${this.getName()} is missing.<br /><br /> <a href="https://betterdiscord.net/ghdl?url=https://raw.githubusercontent.com/rauenzi/BDPluginLibrary/master/release/0PluginLibrary.plugin.js" target="_blank">Click here to download the library!</a>`);
+        ZLibrary.PluginUpdater.checkForUpdate(this.getName(), this.getVersion(), "https://raw.githubusercontent.com/NeutronJava/SoundsForBetterDiscordPlugin/main/memesounds/MemeSounds.plugin.jsE");
 		
 		const plugin = (Plugin, Api) => { try {
 			
