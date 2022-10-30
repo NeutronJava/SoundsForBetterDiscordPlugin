@@ -98,6 +98,7 @@ function randomNumber(min, max) {
     return Math.random() * (max - min) + min;
 } 
 								audio.playbackRate = randomNumber(1, 5);
+								audio.play();
 								} else {
 								
 							audio.play();
