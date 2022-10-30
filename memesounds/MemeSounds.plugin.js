@@ -98,7 +98,7 @@ module.exports = (() => {
   const player = new Tone.Player({
     audio,
     loop: false,
-    autostart: true,
+    autostart: false,
   });
   await Tone.loaded();
   const pitchShift = new Tone
